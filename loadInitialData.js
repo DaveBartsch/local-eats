@@ -46,19 +46,17 @@ const farmStands = [
     vendor_description:
       "We are a 36,000 square foot greenhouse located east of Didsbury, Alberta. We also grow 12 acres of field vegetables. What sets us apart from other greenhouse and garden growers is that we grow all our vegetables WITHOUT the use of synthetic pesticides. Our kids can walk into the greenhouse and eat fresh veggies right off the vine.",
     product_description:
-      "We grow two different types of cucumbers, eight types of tomatoes, hot peppers, bell peppers, butter lettuce, and kale."
+      "We grow two different types of cucumbers, eight types of tomatoes, hot peppers, bell peppers, butter lettuce, and kale.",
   },
- 
 ];
 
 // import models
-const Stand= require("./server/models/standSchema");
+const Stand = require("./server/models/standSchema");
 
 // load data
 const loadInitialData = async () => {
   // load farm stands
   for (let farmStand of farmStands) {
-    //await Pizza.create  pizza;
     await farmStand.create(farmStand);
     console.log(farmStand);
   }
@@ -66,3 +64,5 @@ const loadInitialData = async () => {
 };
 
 loadInitialData();
+
+//How to Stop this function

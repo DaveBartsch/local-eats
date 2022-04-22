@@ -16,7 +16,7 @@ const localStandsSchema = new mongoose.Schema({
     // point :Point
 });
 
-const citySchema = new mongoose.Schema({
+const City = new mongoose.Schema({
  name: String,
  location: {
    type: {

@@ -31,7 +31,7 @@ const citySchema = new mongoose.Schema({
   },
 });
 
-const FarmStand = mongoose.model("Stand", standSchema);
+const FarmStand = mongoose.model("FarmStand", farmStandSchema);
 const City = mongoose.model("City", citySchema);
 
 module.exports = FarmStand;

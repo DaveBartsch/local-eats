@@ -51,7 +51,7 @@ const farmStands = [
 ];
 
 // import models
-const Stand = require("./server/models/standSchema");
+const FarmStand = require("./models/standSchema");
 
 // load data
 const loadInitialData = async () => {

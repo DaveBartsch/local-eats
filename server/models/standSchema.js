@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const standSchema = new mongoose.Schema({
+const farmStandSchema = new mongoose.Schema({
   type: String,
   location_name: String,
   address: String,
@@ -31,8 +31,8 @@ const citySchema = new mongoose.Schema({
   },
 });
 
-const Stand = mongoose.model("Stand", standSchema);
+const FarmStand = mongoose.model("Stand", standSchema);
 const City = mongoose.model("City", citySchema);
 
-module.exports = Stand;
+module.exports = FarmStand;
 module.exports = City;

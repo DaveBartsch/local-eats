@@ -1,4 +1,4 @@
-const farmStands = [
+const farmStandData = [
   {
     type: "Farm Stand",
     location_name: "Hillhurst Sunnyside Community Association",

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// schema for farm stand
 const farmStandSchema = new mongoose.Schema({
   type: String,
   location_name: String,
@@ -16,23 +17,8 @@ const farmStandSchema = new mongoose.Schema({
   // point :Point
 });
 
-const citySchema = new mongoose.Schema({
-  name: String,
-  location: {
-    type: {
-      type: String,
-      enum: ["Point"],
-      required: true,
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-    },
-  },
-});
-
+// create model from schema
 const FarmStand = mongoose.model("FarmStand", farmStandSchema);
-const City = mongoose.model("City", citySchema);
 
+// export model
 module.exports = FarmStand;
-module.exports = City;

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("../mongoose");
 
 // schema for location
 const citySchema = new mongoose.Schema({

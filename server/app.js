@@ -7,20 +7,24 @@ var app = express();
 // import logger: morgan
 var logger = require("morgan");
 
+// import farmStandRouter
+const farmStandRouter = require("./routes/farmStandRoutes");
+
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use("/farm_stands", farmStandRouter);
+
 //added by default from npx express-generator
 var path = require("path");
 var cookieParser = require("cookie-parser");
 // var createError = require("http-errors");
 // var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
-
-// view engine setup
+// view engine setup (added by default)
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
-
-app.use(logger("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 
 //added by default from npx express-generator
 app.use(cookieParser());

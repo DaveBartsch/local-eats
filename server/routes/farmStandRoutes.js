@@ -11,10 +11,24 @@ const FarmStand = require("../db/models/standSchema");
 const {
   createFarmStand,
   getAllFarmStands,
+  getFarmStandByID,
 } = require("../db/models/standSchema");
+
+
+
+
+router.get("/Home", async (req, res) => {
+  res.json({ msg: "This is a test Farm stand" });
+});
+
+
+
 
 // Get All the farm stands
 router.get("/", async (req, res) => {
+  
+  
+
   try {
     const farmStands = await getAllFarmStands();
     res.send(farmStands);
@@ -25,18 +39,20 @@ router.get("/", async (req, res) => {
 
 // Get a farm Stand by ID
 router.get("/:id", async (req, res) => {
-  try {
-    const farmStand = await FarmStand.findById(req.params.id);
+
+    try
+    {
+    const farmStand = await FarmStand.getFarmStandByID(req.params.id);
     res.send(farmStand);
   } catch (err) {
-    res.status(400).send(err);
+    res.status(500).send(err);
   }
 });
 
 // create a farm Stand
 router.post("/", async (req, res) => {
   try {
-    const farmStand = await FarmStand.create(req.body);
+    const farmStand = await FarmStand.createFarmStand(req.body);
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);

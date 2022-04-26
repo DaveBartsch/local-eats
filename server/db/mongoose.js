@@ -1,6 +1,7 @@
 // import and connect mongoose
 const mongoose = require("mongoose");
 
+// new variable: connection string
 const connectionString = "mongodb://localhost:27017/yycLocalEats";
 try {
   mongoose.connect(connectionString, () => {

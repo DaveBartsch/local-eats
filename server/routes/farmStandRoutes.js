@@ -1,8 +1,13 @@
 // import express
 var express = require("express");
+
+//import router
 const router = express.Router();
+
+//import model
 const FarmStand = require("../models/standSchema");
 
+// import functions
 const {
   createFarmStand,
   getAllFarmStands,

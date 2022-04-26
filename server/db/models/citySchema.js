@@ -1,3 +1,4 @@
+//import mongoose
 const mongoose = require("../mongoose");
 
 // schema for location

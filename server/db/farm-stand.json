@@ -1,3 +1,4 @@
+// an array of objects, each object is 1 farm stand
 [
   {
     "type": "Farm Stand",

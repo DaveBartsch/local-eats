@@ -1,7 +1,7 @@
 // import models
 const FarmStand = require("./models/standSchema");
 
-// import data
+// import farm stand data
 const initialData = require("./farm-stand.json");
 
 // import mongoose

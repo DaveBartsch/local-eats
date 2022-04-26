@@ -5,7 +5,7 @@ var express = require("express");
 const router = express.Router();
 
 //import model
-const FarmStand = require("../models/standSchema");
+const FarmStand = require("../db/models/standSchema");
 
 // import functions
 const {

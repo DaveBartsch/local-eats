@@ -28,7 +28,7 @@ const loadInitialData = async () => {
   console.log("Finished loading initial data.");
 };
 
-//call the function
+//call the function: create an object for every farm stand
 loadInitialData();
 
 // // load data

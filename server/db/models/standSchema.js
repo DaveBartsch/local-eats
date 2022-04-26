@@ -34,8 +34,15 @@ const getAllFarmStands = async () => {
   return farmStands;
 };
 
+const getFarmStandByID = async (id) => {
+  const farmStand = await FarmStand.findOne({ _id: id });
+  return farmStand;
+};
+
+
+
 // export model
 module.exports = FarmStand;
 
 //export functions
-module.exports = { createFarmStand, getAllFarmStands };
+module.exports = { createFarmStand, getAllFarmStands, getFarmStandByID };

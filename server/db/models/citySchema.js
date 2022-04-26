@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+//import mongoose
+const mongoose = require("../mongoose");
 
 // schema for location
 const citySchema = new mongoose.Schema({

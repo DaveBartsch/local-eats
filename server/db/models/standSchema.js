@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+//import mongoose
+const mongoose = require("../mongoose");
 
 // schema for farm stand
 const farmStandSchema = new mongoose.Schema({
@@ -18,7 +19,23 @@ const farmStandSchema = new mongoose.Schema({
 });
 
 // create model from schema
-const FarmStand = mongoose.model("FarmStand", farmStandSchema);
+const FarmStand = mongoose.model("farm_stand", farmStandSchema);
+
+//new function: create a farm stand object
+const createFarmStand = async (farmStand) => {
+  const newFarmStand = await FarmStand.create(farmStand);
+  // console.log(`farmStand is: ${JSON.stringify(farmStand)}`);
+  return newFarmStand;
+};
+
+//new function: get ALL farm stand objects
+const getAllFarmStands = async () => {
+  const farmStands = await FarmStand.find({});
+  return farmStands;
+};
 
 // export model
 module.exports = FarmStand;
+
+//export functions
+module.exports = { createFarmStand, getAllFarmStands };

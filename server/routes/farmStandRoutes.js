@@ -36,7 +36,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const farmStand = await getFarmStandByID(req.params.id);
-    console.log(`farmStand requested is: ${farmStand}`);
+    console.log(`Farm stand requested: ${farmStand.vendor_name}`);
     res.send(farmStand);
   } catch (err) {
     res.status(500).send(err);

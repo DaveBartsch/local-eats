@@ -12,23 +12,16 @@ const {
   createFarmStand,
   getAllFarmStands,
   getFarmStandByID,
+  deleteFarmStand,
 } = require("../db/models/standSchema");
 
-
-
-
+// test page
 router.get("/Home", async (req, res) => {
   res.json({ msg: "This is a test Farm stand" });
 });
 
-
-
-
 // Get All the farm stands
 router.get("/", async (req, res) => {
-  
-  
-
   try {
     const farmStands = await getAllFarmStands();
     res.send(farmStands);
@@ -39,10 +32,8 @@ router.get("/", async (req, res) => {
 
 // Get a farm Stand by ID
 router.get("/:id", async (req, res) => {
-
-    try
-    {
-    const farmStand = await FarmStand.getFarmStandByID(req.params.id);
+  try {
+    const farmStand = await getFarmStandByID(req.params.id);
     res.send(farmStand);
   } catch (err) {
     res.status(500).send(err);
@@ -52,7 +43,7 @@ router.get("/:id", async (req, res) => {
 // create a farm Stand
 router.post("/", async (req, res) => {
   try {
-    const farmStand = await FarmStand.createFarmStand(req.body);
+    const farmStand = await createFarmStand(req.body);
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);
@@ -62,11 +53,9 @@ router.post("/", async (req, res) => {
 //Update a farmStand after searching and getting it by ID
 router.put("/:id", async (req, res) => {
   try {
-    const farmStand = await FarmStand.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
+    const farmStand = await updateFarmStand(req.params.id, req.body, {
+      new: true,
+    });
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);
@@ -76,7 +65,7 @@ router.put("/:id", async (req, res) => {
 // delete a farmStand
 router.delete("/:id", async (req, res) => {
   try {
-    const farmStand = await FarmStand.findByIdAndDelete(req.params.id);
+    const farmStand = await deleteFarmStand(req.params.id);
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);

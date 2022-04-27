@@ -45,8 +45,28 @@ const getFarmStandByID = async (id) => {
   return farmStand;
 };
 
+//new function: update farm stand by id
+const updateFarmStand = async (id, updateData) => {
+  const updatedFarmStand = await FarmStand.findByIdAndUpdate(id, updateData, {
+    new: true,
+  });
+  return updatedFarmStand;
+};
+
+//new function: delete a farm stand by id
+const deleteFarmStand = async (id) => {
+  const deletedFarmStand = await FarmStand.findByIdAndDelete(id);
+  console.log(`Deleting farm stand: ${id}`);
+  return deletedFarmStand;
+};
+
 // export model
 module.exports = FarmStand;
 
 //export functions
-module.exports = { createFarmStand, getAllFarmStands, getFarmStandByID };
+module.exports = {
+  createFarmStand,
+  getAllFarmStands,
+  getFarmStandByID,
+  deleteFarmStand,
+};

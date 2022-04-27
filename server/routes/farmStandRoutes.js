@@ -76,7 +76,7 @@ router.put("/:id", async (req, res) => {
 // delete a farmStand
 router.delete("/:id", async (req, res) => {
   try {
-    console.log(`Deleting farm stand by ID: ${id}`);
+    console.log(`Deleting farm stand by ID: ${JSON.stringify(req.params.id)}`);
     const farmStand = await deleteFarmStand(req.params.id);
     res.send(farmStand);
   } catch (err) {

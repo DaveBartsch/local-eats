@@ -24,8 +24,8 @@ router.get("/Home", async (req, res) => {
 // Get All the farm stands
 router.get("/", async (req, res) => {
   try {
-    const farmStands = await getAllFarmStands();
     console.log(`Getting all farm stands...`);
+    const farmStands = await getAllFarmStands();
     res.send(farmStands);
   } catch (err) {
     res.status(400).send(err);
@@ -46,8 +46,8 @@ router.get("/:id", async (req, res) => {
 // create a farm Stand
 router.post("/", async (req, res) => {
   try {
-    console.log(`Creating farmStand: ${farmStand.vendor_name}`);
     const farmStand = await createFarmStand(req.body);
+    console.log(`Creating farmStand: ${farmStand.vendor_name}`);
     console.log(
       `Created farmStand ${newFarmStand.vendor_name} with id ${newFarmStand._id}`
     );
@@ -60,13 +60,13 @@ router.post("/", async (req, res) => {
 //Update a farmStand after searching and getting it by ID
 router.put("/:id", async (req, res) => {
   try {
-    const farmStand = await updateFarmStand(req.params.id, req.body, {
-      new: true,
-    });
     console.log(
       `Updating farm stand: (${farmStand.vendor_name}) 
       with new data: (${JSON.stringify(req.body)})`
     );
+    const farmStand = await updateFarmStand(req.params.id, req.body, {
+      new: true,
+    });
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);
@@ -76,8 +76,8 @@ router.put("/:id", async (req, res) => {
 // delete a farmStand
 router.delete("/:id", async (req, res) => {
   try {
-    const farmStand = await deleteFarmStand(req.params.id);
     console.log(`Deleting farm stand by ID: ${id}`);
+    const farmStand = await deleteFarmStand(req.params.id);
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);

@@ -60,13 +60,13 @@ router.post("/", async (req, res) => {
 //Update a farmStand after searching and getting it by ID
 router.put("/:id", async (req, res) => {
   try {
+    const farmStand = await updateFarmStand(req.params.id, req.body, {
+      new: true,
+    });
     console.log(
       `Updating farm stand: (${farmStand.vendor_name}) 
       with new data: (${JSON.stringify(req.body)})`
     );
-    const farmStand = await updateFarmStand(req.params.id, req.body, {
-      new: true,
-    });
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);

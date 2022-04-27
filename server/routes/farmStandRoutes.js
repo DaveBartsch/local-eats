@@ -24,8 +24,8 @@ router.get("/Home", async (req, res) => {
 // Get All the farm stands
 router.get("/", async (req, res) => {
   try {
-    console.log(`Getting all farm stands...`);
     const farmStands = await getAllFarmStands();
+    console.log(`Getting all farm stands...`);
     res.send(farmStands);
   } catch (err) {
     res.status(400).send(err);
@@ -35,8 +35,8 @@ router.get("/", async (req, res) => {
 // Get a farm Stand by ID
 router.get("/:id", async (req, res) => {
   try {
-    console.log(`farmStand requested is: ${farmStand}`);
     const farmStand = await getFarmStandByID(req.params.id);
+    console.log(`farmStand requested is: ${farmStand}`);
     res.send(farmStand);
   } catch (err) {
     res.status(500).send(err);
@@ -76,8 +76,8 @@ router.put("/:id", async (req, res) => {
 // delete a farmStand
 router.delete("/:id", async (req, res) => {
   try {
-    const farmStand = await deleteFarmStand(req.params.id);
     console.log(`Deleting farm stand by ID: ${id}`);
+    const farmStand = await deleteFarmStand(req.params.id);
     res.send(farmStand);
   } catch (err) {
     res.status(400).send(err);

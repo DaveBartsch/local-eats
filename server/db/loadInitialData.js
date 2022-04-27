@@ -15,7 +15,11 @@ const loadInitialData = async () => {
   for (let i = 0; i < initialData.length; i++) {
     const farmStand = initialData[i];
     try {
+      console.log(`Creating farmStand: ${farmStand.vendor_name}`);
       const newFarmStand = await createFarmStand(farmStand);
+      console.log(
+        `Created farmStand ${newFarmStand.vendor_name} with id ${newFarmStand._id}`
+      );
     } catch (err) {
       console.log(`Error creating farmStand: ${farmStand.vendor_name}`);
       console.log(err.message);

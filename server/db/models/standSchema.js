@@ -23,23 +23,27 @@ const FarmStand = mongoose.model("farm_stand", farmStandSchema);
 
 //new function: create a farm stand object
 const createFarmStand = async (farmStand) => {
+  console.log(`Creating farmStand: ${farmStand.vendor_name}`);
   const newFarmStand = await FarmStand.create(farmStand);
-  // console.log(`farmStand is: ${JSON.stringify(farmStand)}`);
+  console.log(
+    `Created farmStand ${newFarmStand.vendor_name} with id ${newFarmStand._id}`
+  );
   return newFarmStand;
 };
 
 //new function: get ALL farm stand objects
 const getAllFarmStands = async () => {
   const farmStands = await FarmStand.find({});
+  console.log(`Getting all farm stands...`);
   return farmStands;
 };
 
+//new function: get one farm stand by ID
 const getFarmStandByID = async (id) => {
   const farmStand = await FarmStand.findOne({ _id: id });
+  console.log(`farmStand is ${farmStand}`);
   return farmStand;
 };
-
-
 
 // export model
 module.exports = FarmStand;

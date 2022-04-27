@@ -68,5 +68,6 @@ module.exports = {
   createFarmStand,
   getAllFarmStands,
   getFarmStandByID,
+  updateFarmStand,
   deleteFarmStand,
 };

@@ -12,6 +12,7 @@ const {
   createFarmStand,
   getAllFarmStands,
   getFarmStandByID,
+  updateFarmStand,
   deleteFarmStand,
 } = require("../db/models/standSchema");
 

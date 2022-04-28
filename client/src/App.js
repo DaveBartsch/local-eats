@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import FarmStandData from "./components/FarmStandData";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [farmStandList, setFarmStandList] = useState();
+  console.log(`Farm Stands list: ${JSON.stringify(farmStandList)}`);
+
+  useEffect(() => {
+    getFarmStandsList();
+  }, []);
+
+  const getFarmStandsList = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/farmstands");
+      const farmstands = await response.json();
+      console.log(`Farm stands are:${farmstands}`);
+      return setFarmStandList(farmstands);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Farm Stands</h1>
       </header>
+      {farmStandList.map((farmStand) => {
+        return <FarmStandData farmStand={farmStand} />;
+      })}
     </div>
   );
 }

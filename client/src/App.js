@@ -12,7 +12,7 @@ function App() {
 
   const getFarmStandsList = async () => {
     try {
-      const response = await fetch("http://localhost:3000/farmstands");
+      const response = await fetch("/farm_stands/");
       const farmstands = await response.json();
       console.log(`Farm stands are:${farmstands}`);
       return setFarmStandList(farmstands);
@@ -20,16 +20,21 @@ function App() {
       console.log(ex);
     }
   };
+   if(farmStandList===undefined){
+    return <div>Loading...</div>
+   } else {
+
   return (
     <div className="App">
       <header>
         <h1>Farm Stands</h1>
       </header>
-      {farmStandList.map((farmStand) => {
+      { farmStandList.map((farmStand) => {
         return <FarmStandData farmStand={farmStand} />;
       })}
     </div>
   );
+    }
 }
 
 export default App;

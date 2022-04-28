@@ -30,7 +30,7 @@ const NewFarmStandForm = (props) => {
     
   const data=JSON.stringify(newFarmStand);
   console.log(`creating new farm stand: ${data}`);
-  const response=await fetch("http://localhost:3000/farm_stands",{
+  const response=await fetch("/farm_stands/",{
     method:"POST",
     headers:{
       "Content-Type":"application/json",

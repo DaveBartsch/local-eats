@@ -3,7 +3,6 @@ const mongoose = require("../mongoose");
 
 // schema for farm stand
 const farmStandSchema = new mongoose.Schema({
-  
   type: String,
   location_name: String,
   address: String,
@@ -40,6 +39,12 @@ const getFarmStandByID = async (id) => {
   return farmStand;
 };
 
+//new function: get farm stands by Sector
+const getFarmStandsBySector = async (citySector) => {
+  const farmStand = await FarmStand.find({ sector: citySector });
+  return farmStand;
+};
+
 //new function: update farm stand by id
 const updateFarmStand = async (id, updateData) => {
   const updatedFarmStand = await FarmStand.findByIdAndUpdate(id, updateData, {
@@ -59,6 +64,7 @@ module.exports = {
   createFarmStand,
   getAllFarmStands,
   getFarmStandByID,
+  getFarmStandsBySector,
   updateFarmStand,
   deleteFarmStand,
 };

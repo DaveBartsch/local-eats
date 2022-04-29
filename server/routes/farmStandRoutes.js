@@ -12,6 +12,7 @@ const {
   createFarmStand,
   getAllFarmStands,
   getFarmStandByID,
+  getFarmStandsBySector,
   updateFarmStand,
   deleteFarmStand,
 } = require("../db/models/standSchema");
@@ -30,6 +31,34 @@ router.get("/", async (req, res) => {
   } catch (err) {
     res.status(400).send(err);
   }
+});
+
+// Get Northwest farm stands
+router.get("/nw", async (req, res) => {
+  console.log(`Getting Northwest farm stands...`);
+  const farmStands = await getFarmStandsBySector("Northwest");
+  res.send(farmStands);
+});
+
+// Get Northeast farm stands
+router.get("/ne", async (req, res) => {
+  console.log(`Getting Northeast farm stands...`);
+  const farmStands = await getFarmStandsBySector("Northeast");
+  res.send(farmStands);
+});
+
+// Get Southwest farm stands
+router.get("/sw", async (req, res) => {
+  console.log(`Getting Southwest farm stands...`);
+  const farmStands = await getFarmStandsBySector("Southwest");
+  res.send(farmStands);
+});
+
+// Get Southeast farm stands
+router.get("/se", async (req, res) => {
+  console.log(`Getting Southeast farm stands...`);
+  const farmStands = await getFarmStandsBySector("Southeast");
+  res.send(farmStands);
 });
 
 // Get a farm Stand by ID

@@ -1,15 +1,15 @@
+import { Link } from "react-router-dom";
+
 const FarmStandData = (props) => {
   const farmStand = props.farmStand;
-  const changeDetails = props.changeDetails;
+
   return (
     <div>
-      <h1>{farmStand.type}</h1>
       <h2>location_name:</h2>
-      <h2>
-        <a href="#" onClick={() => changeDetails(farmStand._id)}>
-          {farmStand.location_name}
-        </a>
-      </h2>
+      <h2><Link to={`/details/${farmStand._id}`}>{farmStand.location_name}</Link></h2>
+
+      <h1>{farmStand.type}</h1>
+
       <p>address:</p>
       <p>{farmStand.address}</p>
       <p>hours:</p>

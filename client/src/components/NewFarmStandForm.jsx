@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 const NewFarmStandForm = (props) => {
+   
   const [type, setType] = useState("");
   const [location_name, setLocation_name] = useState("");
   const [address, setAddress] = useState("");
@@ -13,37 +14,27 @@ const NewFarmStandForm = (props) => {
   const [vendor_description, setVendor_description] = useState("");
   const [product_description, setProduct_description] = useState("");
   const setShowModal=props.setShowModal;
+  const onFormSubmit=props.onFormSubmit;
+  const initialValues=props.initialValues;
 
-  const onFormSubmit = async () => {
-    const newFarmStand = {
-      type: type,
-      location_name: location_name,
-      address: address,
-      hours: hours,
-      duration: duration,
-      community: community,
-      sector: sector,
-      vendor_name: vendor_name,
-      vendor_description: vendor_description,
-      product_description: product_description,
-    };
+  useEffect(() => {
+    if (initialValues) {
+      setType(initialValues.type);
+      setLocation_name(initialValues.location_name);
+      setAddress(initialValues.address);
+      setHours(initialValues.hours);
+      setDuration(initialValues.duration);
+      setCommunity(initialValues.community);
+      setSector(initialValues.sector);
+      setVendor_name(initialValues.vendor_name);
+      setVendor_description(initialValues.vendor_description);
+      setProduct_description(initialValues.product_description);
+      console.log(`initialValues is:`, initialValues);
+    }
+  
+  }, [initialValues]);
     
-  const data=JSON.stringify(newFarmStand);
-  console.log(`creating new farm stand: ${data}`);
-  const response=await fetch("/farm_stands/",{
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
-    },
-    body:data,
-  });
-if (response.status===200){
-  console.log("success");
-  setShowModal(false);
-} else{
-  alert('Error creating new farm stand');
-}
-  }
+  
 
 
   return (
@@ -150,7 +141,19 @@ if (response.status===200){
           }}
         />
         <br />
-        <button onClick={onFormSubmit}>Submit</button>
+        <button onClick={()=>onFormSubmit({
+          type:type,
+          location_name:location_name,
+          address:address,
+          hours:hours,
+          duration:duration,
+          community:community,
+          sector:sector,
+          vendor_name:vendor_name,
+          vendor_description:vendor_description,
+          product_description:product_description
+          
+        })}>Submit</button>
       </div>
     </div>
   );

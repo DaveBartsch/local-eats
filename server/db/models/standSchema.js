@@ -3,6 +3,7 @@ const mongoose = require("../mongoose");
 
 // schema for farm stand
 const farmStandSchema = new mongoose.Schema({
+  
   type: String,
   location_name: String,
   address: String,

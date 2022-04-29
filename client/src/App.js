@@ -2,53 +2,29 @@ import "./App.css";
 import FarmStandData from "./components/FarmStandData";
 import { useState, useEffect } from "react";
 import NewFarmStandForm from "./components/NewFarmStandForm";
-import DetailComponent from "./components/DetailComponent";
+import DetailComponent from "./pages/DetailComponent";
+import FarmStandsList from "./components/FarmStandsList";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CreateFarmStand from "./pages/CreateFarmStand";
+import EditFarmStand from "./pages/EditFarmStand";
+
+
 
 function App() {
-  const [farmStandList, setFarmStandList] = useState();
-  const [showModal, setShowModal] = useState(false);
-  const[id,setId]=useState();
-  console.log(`Farm Stands list: ${JSON.stringify(farmStandList)}`);
-
-  useEffect(() => {
-    getFarmStandsList();
-  },[]);
-
-  const getFarmStandsList = async () => {
-    try {
-      const response = await fetch("/farm_stands/");
-      const farmstands = await response.json();
-      console.log(`Farm stands are:${farmstands}`);
-      return setFarmStandList(farmstands);
-    } catch (ex) {
-      console.log(ex);
-    }
-  };
-  if (farmStandList === undefined) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <div className="App">
-        <header>
-          <DetailComponent id={id} />
-          <h1>Calgary Farm Stands</h1>
-        </header>
-        {farmStandList.map((farmStand) => {
-          return <FarmStandData farmStand={farmStand} changeDetails={setId} />;
-        })}
-        <button
-          onClick={() => {
-            setShowModal(true);
-          }}
-        >
-          {" "}
-          Add a new FarmStand
-        </button>
-        {showModal && <NewFarmStandForm setShowModal={setShowModal} />}
-       
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header>
+        <h1>Calgary Farm Stands</h1>
+      </header>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/details/:id" element={<DetailComponent />} />
+        <Route path="/add" element={<CreateFarmStand />} />
+        <Route path="/edit/:id" element={<EditFarmStand />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

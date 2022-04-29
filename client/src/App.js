@@ -7,11 +7,12 @@ import DetailComponent from "./components/DetailComponent";
 function App() {
   const [farmStandList, setFarmStandList] = useState();
   const [showModal, setShowModal] = useState(false);
+  const[id,setId]=useState();
   console.log(`Farm Stands list: ${JSON.stringify(farmStandList)}`);
 
   useEffect(() => {
     getFarmStandsList();
-  }, []);
+  },[]);
 
   const getFarmStandsList = async () => {
     try {
@@ -29,11 +30,11 @@ function App() {
     return (
       <div className="App">
         <header>
-          <DetailComponent id={"626ab7e75ec39ead7764187a"} />
-          <h1>Farm Stands</h1>
+          <DetailComponent id={id} />
+          <h1>Calgary Farm Stands</h1>
         </header>
         {farmStandList.map((farmStand) => {
-          return <FarmStandData farmStand={farmStand} />;
+          return <FarmStandData farmStand={farmStand} changeDetails={setId} />;
         })}
         <button
           onClick={() => {
@@ -44,7 +45,7 @@ function App() {
           Add a new FarmStand
         </button>
         {showModal && <NewFarmStandForm setShowModal={setShowModal} />}
-        <DetailComponent id={"626ab7e75ec39ead7764187a"} />
+       
       </div>
     );
   }

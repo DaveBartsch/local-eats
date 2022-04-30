@@ -33,16 +33,16 @@ const getAllFarmStands = async () => {
   return farmStands;
 };
 
-//new function: get one farm stand by ID
-const getFarmStandByID = async (id) => {
-  const farmStand = await FarmStand.findOne({ _id: id });
-  return farmStand;
-};
-
 //new function: get farm stands by Sector
 const getFarmStandsBySector = async (citySector) => {
   const farmStand = await FarmStand.find({ sector: citySector });
   return farmStand;
+
+  //new function: get one farm stand by ID
+  const getFarmStandByID = async (id) => {
+    const farmStand = await FarmStand.findOne({ _id: id });
+    return farmStand;
+  };
 };
 
 //new function: update farm stand by id

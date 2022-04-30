@@ -34,7 +34,7 @@ const CreateFarmStand = () => {
     return (
       <div>
         <h2>Create Farm Stand</h2>
-        <NewFarmStandForm onFormSubmit={onFormSubmit} />
+        <NewFarmStandForm onFormSubmit={onFormSubmit} buttonText="Create FarmStand"/>
       </div>
     );
   };

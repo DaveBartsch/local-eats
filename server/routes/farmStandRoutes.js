@@ -11,8 +11,8 @@ const FarmStand = require("../db/models/standSchema");
 const {
   createFarmStand,
   getAllFarmStands,
-  getFarmStandByID,
   getFarmStandsBySector,
+  getFarmStandByID,
   updateFarmStand,
   deleteFarmStand,
 } = require("../db/models/standSchema");
@@ -33,32 +33,60 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get Northwest farm stands
-router.get("/nw", async (req, res) => {
-  console.log(`Getting Northwest farm stands...`);
-  const farmStands = await getFarmStandsBySector("Northwest");
-  res.send(farmStands);
-});
-
 // Get Northeast farm stands
 router.get("/ne", async (req, res) => {
-  console.log(`Getting Northeast farm stands...`);
-  const farmStands = await getFarmStandsBySector("Northeast");
-  res.send(farmStands);
+  try {
+    console.log(`Getting Northeast farm stands...`);
+    const farmStands = await getFarmStandsBySector("Northeast");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(
+      `Error getting NE farm stands! Error message is: ${err.message}`
+    );
+    res.status(400).send(`Error in data! Please try again.`);
+  }
 });
 
-// Get Southwest farm stands
-router.get("/sw", async (req, res) => {
-  console.log(`Getting Southwest farm stands...`);
-  const farmStands = await getFarmStandsBySector("Southwest");
-  res.send(farmStands);
+// Get Northwest farm stands
+router.get("/nw", async (req, res) => {
+  try {
+    console.log(`Getting Northwest farm stands...`);
+    const farmStands = await getFarmStandsBySector("Northwest");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(
+      `Error getting NE farm stands! Error message is: ${err.message}`
+    );
+    res.status(400).send(`Error in data! Please try again.`);
+  }
 });
 
 // Get Southeast farm stands
 router.get("/se", async (req, res) => {
-  console.log(`Getting Southeast farm stands...`);
-  const farmStands = await getFarmStandsBySector("Southeast");
-  res.send(farmStands);
+  try {
+    console.log(`Getting Southeast farm stands...`);
+    const farmStands = await getFarmStandsBySector("Southeast");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(
+      `Error getting NE farm stands! Error message is: ${err.message}`
+    );
+    res.status(400).send(`Error in data! Please try again.`);
+  }
+});
+
+// Get Southwest farm stands
+router.get("/sw", async (req, res) => {
+  try {
+    console.log(`Getting Southwest farm stands...`);
+    const farmStands = await getFarmStandsBySector("Southwest");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(
+      `Error getting NE farm stands! Error message is: ${err.message}`
+    );
+    res.status(400).send(`Error in data! Please try again.`);
+  }
 });
 
 // Get a farm Stand by ID

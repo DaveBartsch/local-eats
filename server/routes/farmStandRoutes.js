@@ -11,8 +11,8 @@ const FarmStand = require("../db/models/standSchema");
 const {
   createFarmStand,
   getAllFarmStands,
-  getFarmStandByID,
   getFarmStandsBySector,
+  getFarmStandByID,
   updateFarmStand,
   deleteFarmStand,
 } = require("../db/models/standSchema");
@@ -41,7 +41,9 @@ router.get("/ne", async (req, res) => {
     const farmStands = await getFarmStandsBySector("Northeast");
     res.send(farmStands);
   } catch (err) {
-    console.log(err.message);
+    console.log(
+      `Error getting NE farm stands! Error message is: ${err.message}`
+    );
     res.status(400).send(`Error in data! Please try again.`);
   }
 });
@@ -53,7 +55,9 @@ router.get("/nw", async (req, res) => {
     const farmStands = await getFarmStandsBySector("Northwest");
     res.send(farmStands);
   } catch (err) {
-    console.log(err.message);
+    console.log(
+      `Error getting NW farm stands! Error message is: ${err.message}`
+    );
     res.status(400).send(`Error in data! Please try again.`);
   }
 });
@@ -65,7 +69,9 @@ router.get("/se", async (req, res) => {
     const farmStands = await getFarmStandsBySector("Southeast");
     res.send(farmStands);
   } catch (err) {
-    console.log(err.message);
+    console.log(
+      `Error getting SE farm stands! Error message is: ${err.message}`
+    );
     res.status(400).send(`Error in data! Please try again.`);
   }
 });
@@ -77,7 +83,9 @@ router.get("/sw", async (req, res) => {
     const farmStands = await getFarmStandsBySector("Southwest");
     res.send(farmStands);
   } catch (err) {
-    console.log(err.message);
+    console.log(
+      `Error getting SW farm stands! Error message is: ${err.message}`
+    );
     res.status(400).send(`Error in data! Please try again.`);
   }
 });

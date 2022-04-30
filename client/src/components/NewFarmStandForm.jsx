@@ -16,6 +16,7 @@ const NewFarmStandForm = (props) => {
   const setShowModal=props.setShowModal;
   const onFormSubmit=props.onFormSubmit;
   const initialValues=props.initialValues;
+  const buttonText=props.buttonText;
 
   useEffect(() => {
     if (initialValues) {
@@ -153,7 +154,7 @@ const NewFarmStandForm = (props) => {
           vendor_description:vendor_description,
           product_description:product_description
           
-        })}>Submit</button>
+        })}>{buttonText}</button>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import NewFarmStandForm from "../components/NewFarmStandForm";
 
 const CreateFarmStand = () => {
+  navigate=useNavigate()
   const onFormSubmit = async (farmStand) => {
     const newFarmStand = {
       type: farmStand.type,
@@ -26,6 +28,7 @@ const CreateFarmStand = () => {
     });
     if (response.status === 200) {
       console.log("Created successfully");
+      navigate("/");
     } else {
       alert("Error creating farm stand");
     }

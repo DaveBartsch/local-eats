@@ -29,36 +29,57 @@ router.get("/", async (req, res) => {
     const farmStands = await getAllFarmStands();
     res.send(farmStands);
   } catch (err) {
-    res.status(400).send(err);
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
+  }
+});
+
+// Get Northeast farm stands
+router.get("/ne", async (req, res) => {
+  try {
+    console.log(`Getting Northeast farm stands...`);
+    const farmStands = await getFarmStandsBySector("Northeast");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
   }
 });
 
 // Get Northwest farm stands
 router.get("/nw", async (req, res) => {
-  console.log(`Getting Northwest farm stands...`);
-  const farmStands = await getFarmStandsBySector("Northwest");
-  res.send(farmStands);
-});
-
-// Get Northeast farm stands
-router.get("/ne", async (req, res) => {
-  console.log(`Getting Northeast farm stands...`);
-  const farmStands = await getFarmStandsBySector("Northeast");
-  res.send(farmStands);
-});
-
-// Get Southwest farm stands
-router.get("/sw", async (req, res) => {
-  console.log(`Getting Southwest farm stands...`);
-  const farmStands = await getFarmStandsBySector("Southwest");
-  res.send(farmStands);
+  try {
+    console.log(`Getting Northwest farm stands...`);
+    const farmStands = await getFarmStandsBySector("Northwest");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
+  }
 });
 
 // Get Southeast farm stands
 router.get("/se", async (req, res) => {
-  console.log(`Getting Southeast farm stands...`);
-  const farmStands = await getFarmStandsBySector("Southeast");
-  res.send(farmStands);
+  try {
+    console.log(`Getting Southeast farm stands...`);
+    const farmStands = await getFarmStandsBySector("Southeast");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
+  }
+});
+
+// Get Southwest farm stands
+router.get("/sw", async (req, res) => {
+  try {
+    console.log(`Getting Southwest farm stands...`);
+    const farmStands = await getFarmStandsBySector("Southwest");
+    res.send(farmStands);
+  } catch (err) {
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
+  }
 });
 
 // Get a farm Stand by ID
@@ -68,7 +89,8 @@ router.get("/:id", async (req, res) => {
     console.log(`Farm stand requested: ${farmStand.vendor_name}`);
     res.send(farmStand);
   } catch (err) {
-    res.status(500).send(err);
+    console.log(err.message);
+    res.status(500).send(`Error in data! Please try again.`);
   }
 });
 
@@ -82,7 +104,8 @@ router.post("/", async (req, res) => {
     );
     res.send(farmStand);
   } catch (err) {
-    res.status(400).send(err);
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
   }
 });
 
@@ -98,7 +121,8 @@ router.put("/:id", async (req, res) => {
     );
     res.send(farmStand);
   } catch (err) {
-    res.status(400).send(err);
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
   }
 });
 
@@ -109,7 +133,8 @@ router.delete("/:id", async (req, res) => {
     const farmStand = await deleteFarmStand(req.params.id);
     res.send(farmStand);
   } catch (err) {
-    res.status(400).send(err);
+    console.log(err.message);
+    res.status(400).send(`Error in data! Please try again.`);
   }
 });
 

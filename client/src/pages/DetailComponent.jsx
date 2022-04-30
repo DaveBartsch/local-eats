@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
 const DetailComponent = () => {
   const params=useParams();
   const id=params.id;
+  console.log(`id is:`, id);
   const navigate=useNavigate();
   const [farmStand, setFarmStand] = useState();
 
@@ -11,7 +13,7 @@ const DetailComponent = () => {
     const getFarmStand = async () => {
       const response = await fetch(`/farm_stands/${id}`);
       const data = await response.json();
-     setTimeout(()=> setFarmStand(data),2000);
+     setTimeout(()=> setFarmStand(data),1000);
     };
     getFarmStand();
   }, [id]);
@@ -23,10 +25,10 @@ const DetailComponent = () => {
   return (
     <div
       style={{
-        flex: 2,
-        justifyContent: "left",
-        borderColor: "black",
-        borderWidth: 1,
+       display:'grid',
+        gridTemplate:'2fr 1fr',
+        borderColor: "green",
+        borderWidth: 2,
         borderStyle: "solid",
       }}
     >
@@ -61,7 +63,7 @@ const DetailComponent = () => {
       <label>Vendor Description:</label>
       <span>{farmStand.vendor_description}</span>
       <br/>
-      <button onClick={()=>navigate('/edit/:id' + farmStand._id)}>Edit Farm Stand</button>
+      <button onClick={()=>navigate('/edit/' + farmStand._id)}>Edit Farm Stand</button>
       <br />
       
     </div>

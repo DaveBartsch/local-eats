@@ -9,12 +9,14 @@ var logger = require("morgan");
 
 // import farmStandRouter
 const farmStandRouter = require("./routes/farmStandRoutes");
+const usersRouter = require("./routes/usersRoutes");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/farm_stands", farmStandRouter);
+app.use("/users", usersRouter);
 
 //added by default from npx express-generator
 var path = require("path");

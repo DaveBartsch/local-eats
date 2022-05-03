@@ -54,7 +54,7 @@ const getUserByName=async (userName)=>{
 
 
 
-const updateUser=(id,updateduser)=>{
+const updateUser=async (id,updateduser)=>{
     const user=User.findByIdAndUpdate(id,updateduser);
     return true;
 }

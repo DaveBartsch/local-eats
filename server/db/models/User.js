@@ -28,13 +28,13 @@ const UserSchema=new mongoose.Schema({
 }, {timestamps:true}
 );  
 
-module.export=mongoose.model('User',UserSchema);
+const User=mongoose.model('User',UserSchema);
 
 
     //hash password
-    const createUser=(user)=>{
+    const createUser=async (user)=>{
     const hashedPassword=await bcrypt.hash(user.password,10);
-    const newUser=await user.create({
+    const newUser=await User.create({
         userName:user.userName,
         email:user.email,
         password:hashedPassword
@@ -43,24 +43,24 @@ module.export=mongoose.model('User',UserSchema);
 }
 
 const getUserById=async (id)=>{
-    const   user=await user.findById(id);
+    const   user=await User.findById(id);
     return user;
 }
 
 const getUserByName=async (userName)=>{
-    const user=await user.findOne({userName:userName});
+    const user=await User.findOne({userName:userName});
     return user;
 }
 
 
 
 const updateUser=(id,updateduser)=>{
-    const user=user.findByIdAndUpdate(id,updateduser);
+    const user=User.findByIdAndUpdate(id,updateduser);
     return true;
 }
 
-const deleteUser=(id)=>{
-    const user=user.findByIdAndDelete(id);
+const deleteUser=async (id)=>{
+    const user=await User.findByIdAndDelete(id);
     return true;
 }
 

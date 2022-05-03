@@ -1,3 +1,4 @@
+import { Box, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NewFarmStandForm from "../components/NewFarmStandForm";
@@ -40,16 +41,44 @@ const EditFarmStand = () => {
     }
   };
 
+  const onFormCancel = async (farmStand)=>{
+    console.log(`Cancelling edit of ${id}`);
+    setTimeout(()=>{  navigate(`/details/${id}`)}, 1000);
+  }
+
+const onFormDelete = async (farmStand)=>{
+  window.confirm("Are you sure you want to delete  this farm stand?");
+  if(window.confirm){
+  console.log(`Deleting Farm Stand ${id}`);
+  let response = await fetch(`/farm_stands/${id}`, {
+    method: "DELETE",
+  });
+  if (response.status === 200) {
+    console.log("Deleted successfully");
+    setTimeout(()=>{  navigate(`/`)}, 1000);
+  } else {
+    alert("Error deleting farm stand");
+  }
+} else {
+  console.log("Delete cancelled");
+}
+}
+
   return (
-    <div>
+    <Box mt={3}>
       <h2>Edit Farm Stand</h2>
       <NewFarmStandForm
         initialValues={farmStand}
         onFormSubmit={onFormSubmit}
         buttonText="Update a Farm Stand"
+        onFormCancel={onFormCancel}
+        onFormDelete={onFormDelete}
       />
-    </div>
+      
+    </Box>
+    
   );
+  
 };
 
 export default EditFarmStand;

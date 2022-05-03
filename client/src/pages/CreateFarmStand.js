@@ -1,9 +1,17 @@
+import { Box } from "@mui/system";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import NewFarmStandForm from "../components/NewFarmStandForm";
 
+
+
+
 const CreateFarmStand = () => {
-  navigate=useNavigate()
+  const navigate=useNavigate()
+const  onFormCancel = async (farmStand)=>{
+    console.log(`Cancelling create of ${farmStand}`);
+    navigate("/");
+  }
   const onFormSubmit = async (farmStand) => {
     const newFarmStand = {
       type: farmStand.type,
@@ -26,7 +34,7 @@ const CreateFarmStand = () => {
       },
       body: data,
     });
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 201 || response.status===400) {
       console.log("Created successfully");
       navigate("/");
     } else {
@@ -34,11 +42,15 @@ const CreateFarmStand = () => {
     }
   }
 
+  
+
     return (
-      <div>
+      <Box mt={3}>
+      
         <h2>Create Farm Stand</h2>
-        <NewFarmStandForm onFormSubmit={onFormSubmit} buttonText="Create FarmStand"/>
-      </div>
+        <NewFarmStandForm onFormSubmit={onFormSubmit} buttonText="Create FarmStand" onFormCancel={onFormCancel}/>
+      
+      </Box>
     );
   };
 

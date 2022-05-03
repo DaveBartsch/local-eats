@@ -1,6 +1,21 @@
+import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+const DataItem = (props) => {
+  return (
+  <Box
+  display="flex"
+  flexDirection="row"
+  gap={3}
+  justifyContent="space-between"
+  >
+  {props.children}
+  </Box>
+  );
+ };
+
+
 
 const DetailComponent = () => {
   const params=useParams();
@@ -23,50 +38,68 @@ const DetailComponent = () => {
   }
 
   return (
-    <div
-      style={{
-       display:'grid',
-        gridTemplate:'2fr 1fr',
-        borderColor: "green",
-        borderWidth: 2,
-        borderStyle: "solid",
-      }}
+    <Box
+    display="flex" flexDirection="column" maxWidth="600px" my ={5} mx="auto"
+      
     >
-     <button onClick={()=>navigate("/")}>Back to List</button> <br/>
-      <label>ID</label>
-      <span>{farmStand._id}</span>
+     
+      <DataItem>
+      <Typography variant="label">ID</Typography>
+      <Typography variant="span">{farmStand._id}</Typography >
+      </DataItem>
       <br />
-      <label>Type:</label>
-      <span>{farmStand.type}</span>
+      <DataItem>
+      <Typography variant="label">Type:</Typography>
+      <Typography variant="span">{farmStand.type}</Typography >
+      
+      </DataItem>
       <br />
-      <label>Location:</label>
-      <span>{farmStand.location_name}</span>
+      <DataItem>
+      <Typography variant="label">Location:</Typography>
+      <Typography variant="span">{farmStand.location_name}</Typography >
+      </DataItem>
       <br />
-      <label>Address:</label>
-      <span>{farmStand.address}</span>
+      <DataItem>
+      <Typography variant="label">Address:</Typography>
+      <Typography variant="span">{farmStand.address}</Typography >
+      </DataItem>
       <br />
-      <label>Hours:</label>
-      <span>{farmStand.hours}</span>
+      <DataItem>
+      <Typography variant="label">Hours:</Typography>
+      <Typography variant="span">{farmStand.hours}</Typography >
+      </DataItem>
       <br />
-      <label>Duration:</label>
-      <span>{farmStand.duration}</span>
+      <DataItem>
+      <Typography variant="label">Duration:</Typography>
+      <Typography variant="span">{farmStand.duration}</Typography >
+      </DataItem>
       <br />
-      <label>Community:</label>
-      <span>{farmStand.community}</span>
+      <DataItem>
+      <Typography variant="label">Community:</Typography>
+      <Typography variant="span">{farmStand.community}</Typography >
+      </DataItem>
       <br />
-      <label>Sector:</label>
-      <span>{farmStand.sector}</span>
+      <DataItem>
+      <Typography variant="label">Sector:</Typography>
+      <Typography variant="span">{farmStand.sector}</Typography >
+      </DataItem>
       <br />
-      <label>Vendor Name:</label>
-      <span>{farmStand.vendor_name}</span>
+      <DataItem>
+      <Typography variant="label">Vendor Name:</Typography>
+      <Typography variant="span">{farmStand.vendor_name}</Typography >
+      </DataItem>
       <br />
-      <label>Vendor Description:</label>
-      <span>{farmStand.vendor_description}</span>
+      <DataItem>
+      <Typography variant="label">Vendor Description:</Typography>
+      <Typography variant="span">{farmStand.vendor_description}</Typography >
+      </DataItem>
       <br/>
-      <button onClick={()=>navigate('/edit/' + farmStand._id)}>Edit Farm Stand</button>
+      <Button variant="contained" onClick={()=>navigate('/edit/' + farmStand._id)}>Edit Farm Stand</Button>
+      <Button variant="contained" onClick={()=>navigate('/')}>Back</Button>
+      
       <br />
       
-    </div>
+    </Box>
   );
 };
 

@@ -1,47 +1,26 @@
-const router = require("express").Router();
-const User=require("../db/models/User");
-const bcrypt = require('bcrypt');
+var express = require("express");
+var router = express.Router();
+var debug = require("debug")("server:routes");
+var User = require("../models/User");
+const {
+  getUserById,
+  getUserByName,
+  createUser,
+  updateUser,
+  verifyPassword
+} = require("../db/models/User");
 
+const LocalStrategy = require("passport-local").Strategy;
 
-
-
-    router.post('/register',async (req,res)=>{
-       try{
-            const salt=await bcrypt.genSalt(10)
-        const hashedPassword=await bcrypt.hash(req.body.password,salt);
-        const newUser=new User({
-            userName:req.body.userName,
-            email:req.body.email,
-            password:hashedPassword,
-        });
-        const user=await newUser.save();
-        console.log(user);
-        res.status(200).json(user._id);
-    } catch(err) {
-        res.status(500).json(err)
+passport.use(async function LocalStrategy(username, password, done) {
+    const user =await getUserByName(username);
+    if (!user) {
+        return done(null, false, { message: "Incorrect username." });
     }
-})
-      
-
-router.post("/login",async (req,res)=>{
-    try{
-        const user=await User.findOne({userName:req.body.userName});
-        if(!user){
-            res.status(404).json("Wrong username or password");
-        }
-        const isMatch=await bcrypt.compare(req.body.password,user.password);
-        if(!isMatch){
-            res.status(401).json("Wrong username or password")
-        }
-        res.status(200).json({_id:user._id,userName:user.userName,email});
-
-    }catch(err){
-        res.status(500).json(err)
+    const isMatch = await verifyPassword(password, user.password);
+    if (!isMatch) {
+        return done(null, false, { message: "Incorrect password." });
     }
-})
+    return done(null, user);
+});
 
-
-
-
-
-module.exports= router;

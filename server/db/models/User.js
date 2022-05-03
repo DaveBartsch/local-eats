@@ -13,8 +13,8 @@ const UserSchema=new mongoose.Schema({
     },
     email:{
         type:String,
-        required:true,
-        unique:true,
+      
+        
         trim:true,
     },
     password:
@@ -64,10 +64,16 @@ const deleteUser=(id)=>{
     return true;
 }
 
+const verifyPassword=async (password)=>{
+   const isMatch=await bcrypt.compare(password,this.password);
+    return isMatch;
+}
+
 module.exports={
     createUser,
     getUserById,
     getUserByName,
     updateUser,
+    verifyPassword,
     deleteUser
 }

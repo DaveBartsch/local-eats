@@ -42,10 +42,17 @@ module.export=mongoose.model('User',UserSchema);
     return newUser;
 }
 
-const getUserById=(id)=>{
-    const   user=user.findById(id);
+const getUserById=async (id)=>{
+    const   user=await user.findById(id);
     return user;
 }
+
+const getUserByName=async (userName)=>{
+    const user=await user.findOne({userName:userName});
+    return user;
+}
+
+
 
 const updateUser=(id,updateduser)=>{
     const user=user.findByIdAndUpdate(id,updateduser);
@@ -60,6 +67,7 @@ const deleteUser=(id)=>{
 module.exports={
     createUser,
     getUserById,
+    getUserByName,
     updateUser,
     deleteUser
 }

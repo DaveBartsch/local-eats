@@ -23,10 +23,10 @@ function App() {
         <Route path="/details/:id" element={<DetailComponent />} />
         <Route path="/add" element={<CreateFarmStand />} />
         <Route path="/edit/:id" element={<EditFarmStand />} />
-        <Route path="/ne" element={<NortheastList />} />
+        {/*{<Route path="/ne" element={<NortheastList />} />
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />
-        <Route path="/sw" element={<SouthwestList />} />
+  <Route path="/sw" element={<SouthwestList />} />}*/}
       </Routes>
     </div>
   );

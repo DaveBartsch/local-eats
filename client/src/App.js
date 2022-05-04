@@ -9,6 +9,7 @@ import NortheastList from "./components/sector-components/NortheastList";
 import NorthwestList from "./components/sector-components/NorthwestList";
 import SoutheastList from "./components/sector-components/SoutheastList";
 import SouthwestList from "./components/sector-components/SouthwestList";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />
         <Route path="/sw" element={<SouthwestList />} />
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
     </div>
   );

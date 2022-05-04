@@ -11,8 +11,16 @@ export default function NavBar() {
  <Button color="inherit">Home</ Button>
  </Link>
  <Link component={RouterLink} color="white" underline="none" to="/add">
+    
  <Button color="inherit">Create a FarmStand</ Button>
  </Link>
+ <Link component={RouterLink} color="white" underline="none" to="/login">
+    <Button color="inherit">Login</ Button>
+  
+ </Link>
+ <Link component={RouterLink} color="white" underline="none" to="/logout">
+    <Button color="inherit">Logout</ Button>
+    </Link>
  </Toolbar>
  </AppBar>
  );

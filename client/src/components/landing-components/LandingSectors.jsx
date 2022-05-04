@@ -10,8 +10,8 @@ const LandingSectors = () => {
         <Grid container>
           <LandingCard name="NW" />
           <LandingCard name="NE" />
-          <LandingCard name="SE" />
           <LandingCard name="SW" />
+          <LandingCard name="SE" />
         </Grid>
       </Container>
     </div>

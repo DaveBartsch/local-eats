@@ -17,6 +17,24 @@ const {
   deleteFarmStand,
 } = require("../db/models/standSchema");
 
+const mustBeManager =  (req, res, next) => {
+  console.log("mustbemanager middleware");
+  if (req.user && req.user.isAgent) {
+    next()
+    return
+  }
+  res.sendStatus(401)
+}
+
+const mustbeOwnProfile = (req, res, next) => {
+  console.log("must be own profile middleware");
+  if(req.user && (req.user.isAgent || req.user.farmStandId===id)) {
+     next();
+     return
+  }
+  res.sendStatus(401);
+}
+
 // test page
 router.get("/Home", async (req, res) => {
   res.json({ msg: "This is a test Farm stand" });
@@ -24,6 +42,7 @@ router.get("/Home", async (req, res) => {
 
 // Get All the farm stands
 router.get("/", async (req, res) => {
+  console.log(`req user: ${req.user}`);
   try {
     console.log(`Getting all farm stands...`);
     const farmStands = await getAllFarmStands();
@@ -103,7 +122,8 @@ router.get("/:id", async (req, res) => {
 });
 
 // create a farm Stand
-router.post("/", async (req, res) => {
+router.post("/",mustBeManager, async (req, res) => {
+  const newFarmStand = req.body;
   try {
     const farmStand = await createFarmStand(req.body);
     console.log(`Creating farmStand: ${farmStand.vendor_name}`);
@@ -118,7 +138,9 @@ router.post("/", async (req, res) => {
 });
 
 //Update a farmStand after searching and getting it by ID
-router.put("/:id", async (req, res) => {
+router.put("/:id", mustbeOwnProfile, async (req, res) => {
+  const id=req.params.id;
+  const updatedFarmStand = req.body;
   try {
     const farmStand = await updateFarmStand(req.params.id, req.body, {
       new: true,

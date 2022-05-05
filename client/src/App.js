@@ -12,6 +12,7 @@ import NorthwestList from "./components/sector-components/NorthwestList";
 import SoutheastList from "./components/sector-components/SoutheastList";
 import SouthwestList from "./components/sector-components/SouthwestList";
 import LandingPage from "./pages/LandingPage";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <NavBar />
       </header>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/details/:id" element={<DetailComponent />} />
         <Route path="/add" element={<CreateFarmStand />} />
         <Route path="/edit/:id" element={<EditFarmStand />} />
@@ -30,7 +31,8 @@ function App() {
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />
         <Route path="/sw" element={<SouthwestList />} />
-        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/sw" element={<SouthwestList />} />
+        <Route path="/recipes" element={<RecipePage />} />
       </Routes>
     </div>
   );

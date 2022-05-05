@@ -8,7 +8,7 @@ import { Link } from "@mui/material";
 const LandingSectors = () => {
   return (
     <div>
-      <h2>SEE FARM STANDS BY SECTOR:</h2>
+      <h1>SEE FARM STANDS BY SECTOR:</h1>
       <Container>
         <Grid container>
           <LandingCard name="NW" />

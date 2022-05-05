@@ -7,8 +7,11 @@ import EditFarmStand from "./pages/EditFarmStand";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LogInPage";
 import Logout from "./components/LogOut";
-
-
+import NortheastList from "./components/sector-components/NortheastList";
+import NorthwestList from "./components/sector-components/NorthwestList";
+import SoutheastList from "./components/sector-components/SoutheastList";
+import SouthwestList from "./components/sector-components/SouthwestList";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
@@ -23,11 +26,11 @@ function App() {
         <Route path="/edit/:id" element={<EditFarmStand />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/logout" element={<Logout />} />
-        {/*{<Route path="/ne" element={<NortheastList />} />
+        <Route path="/ne" element={<NortheastList />} />
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />
         <Route path="/sw" element={<SouthwestList />} />
-  <Route path="/landing" element={<LandingPage />} />*/}
+        <Route path="/landing" element={<LandingPage />} />
       </Routes>
     </div>
   );

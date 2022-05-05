@@ -48,7 +48,7 @@ const NewFarmStandForm = (props) => {
 
   return (
     <Container sx={{ mt: 4 }}>
-      <Box display="flex" flexDirection="column" mb={3}>
+      <Box display="flex" flexDirection="column " mb={3}>
         <div>
           <label>FarmStand Type:</label>
           <TextField
@@ -118,6 +118,7 @@ const NewFarmStandForm = (props) => {
           <br />
           <label>Sector:</label>
           <input
+        
             type="text"
             name="sector"
             value={sector}
@@ -138,6 +139,7 @@ const NewFarmStandForm = (props) => {
           <br />
           <label>Vendor Description:</label>
           <input
+            aria-multiline="default"
             type="text"
             name="vendor_description"
             value={vendor_description}
@@ -148,6 +150,7 @@ const NewFarmStandForm = (props) => {
           <br />
           <label>Product Description:</label>
           <input
+            aria-multiline="default"
             type="text"
             name="product_description"
             value={product_description}

@@ -1,9 +1,5 @@
 import "./App.css";
-import FarmStandData from "./components/FarmStandData";
-import { useState, useEffect } from "react";
-import NewFarmStandForm from "./components/NewFarmStandForm";
 import DetailComponent from "./pages/DetailComponent";
-import FarmStandsList from "./components/FarmStandsList";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CreateFarmStand from "./pages/CreateFarmStand";
@@ -30,7 +26,8 @@ function App() {
         {/*{<Route path="/ne" element={<NortheastList />} />
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />
-  <Route path="/sw" element={<SouthwestList />} />}*/}
+        <Route path="/sw" element={<SouthwestList />} />
+  <Route path="/landing" element={<LandingPage />} />*/}
       </Routes>
     </div>
   );

@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <LandingSectors />
-      <Typography variant="h3">Calgary FarmStands List</Typography>
+      <h1>SEE ALL FARM STANDS:</h1>
       <FarmStandsList />
     </div>
   );

@@ -15,7 +15,6 @@ const LandingPage = () => {
       <h1> Calgary Farm Stands:</h1>
       <MapComponent />
       <LandingSectors />
-      <LandingInfo />
     </div>
   );
 };

@@ -15,6 +15,11 @@ const LandingInfo = () => {
         or produced within a 100-mile radius of the consumer’s home.
       </p>
       <br />
+      <img
+        width="75%"
+        src="https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg"
+      />
+
       <h2> Why eat "local"?</h2>
       <p>
         These are just a few of the numerous potential benefits of eating local:
@@ -51,6 +56,12 @@ const LandingInfo = () => {
         </li>
       </ul>
       <br />
+
+      <img
+        width="75%"
+        src="https://www.thespruceeats.com/thmb/ZnWDXm0VjfY2wy25ocFqZccy5YY=/2164x1217/smart/filters:no_upscale()/freshvegetablesAlexRaths-4c1ea186a88e4fd7b95283eee614600c.jpg"
+      />
+
       <h2>Are local foods more nutritious?</h2>
       <p>
         There are several factors that influence the nutritive value of produce
@@ -74,6 +85,11 @@ const LandingInfo = () => {
         </a>
       </p>
       <br />
+      <img
+        width="75%"
+        src="https://www.oysterenglish.com/images/veggies-vocabulary-in-english.png"
+      />
+
       <h2>Did you know?</h2>
       <ul>
         <li>
@@ -102,6 +118,8 @@ const LandingInfo = () => {
       <a href="https://www.mcgill.ca/foodservices/sustainability/green/local">
         Article published by the Food and Dining Services of McGill Univsersity
       </a>
+      <br />
+      <br />
     </div>
   );
 };

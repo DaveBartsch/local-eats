@@ -12,6 +12,7 @@ import NorthwestList from "./components/sector-components/NorthwestList";
 import SoutheastList from "./components/sector-components/SoutheastList";
 import SouthwestList from "./components/sector-components/SouthwestList";
 import LandingPage from "./pages/LandingPage";
+import InfoPage from "./pages/InfoPage";
 import RecipePage from "./pages/RecipePage";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/all" element={<HomePage />} />
         <Route path="/details/:id" element={<DetailComponent />} />
         <Route path="/add" element={<CreateFarmStand />} />
         <Route path="/edit/:id" element={<EditFarmStand />} />
@@ -32,6 +34,7 @@ function App() {
         <Route path="/se" element={<SoutheastList />} />
         <Route path="/sw" element={<SouthwestList />} />
         <Route path="/sw" element={<SouthwestList />} />
+        <Route path="/info" element={<InfoPage />} />
         <Route path="/recipes" element={<RecipePage />} />
       </Routes>
     </div>

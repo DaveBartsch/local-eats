@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <div>
       <LandingSectors />
-      <h1>SEE ALL FARM STANDS:</h1>
+      <Typography variant="h3">SEE ALL FARM STANDS:</Typography>
       <FarmStandsList />
     </div>
   );

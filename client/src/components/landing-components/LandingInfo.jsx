@@ -3,6 +3,11 @@ import React from "react";
 const LandingInfo = () => {
   return (
     <div>
+      <img
+        width="100%"
+        src="https://mediaproxy.salon.com/width/1200/https://media.salon.com/2021/08/farmers-market-produce-0812211.jpg"
+        alt="http://farmgrants.ca/wp-content/uploads/2018/04/vegetables-basket_fyE57FBd_L-1024x681.jpg"
+      />
       <h2> The benefits of eating local foods </h2>
       <p>
         Are you a locavore? Locavores are people who try to choose locally grown

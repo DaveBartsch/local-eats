@@ -14,7 +14,6 @@
 //   verifyPassword,
 // } = require("../db/models/userModel");
 
-
 // passport.use(
 //   new LocalStrategy(async function (username, password, done) {
 //     try {
@@ -80,10 +79,6 @@
 //   res.send("success");
 // });
 
-
-
-
-
 // module.exports = router;
 
 var express = require("express");
@@ -109,8 +104,13 @@ passport.use(
       if (!passwordsMatch) {
         return done(null, false);
       }
+const userTosend=user.toObject();
+delete userTosend.password;
+console.log( "userTosend", userTosend);
+      return done(null, userTosend);
 
-      return done(null, user);
+
+      //return done(null, user);
     } catch (error) {
       return done(error, null);
     }
@@ -119,7 +119,7 @@ passport.use(
 
 passport.serializeUser(function (user, done) {
   console.log("passport wants to store this user in a cookie", user);
-  done(null, user.id);
+  done(null, user._id);
 });
 
 passport.deserializeUser(async function (id, done) {
@@ -137,12 +137,17 @@ passport.deserializeUser(async function (id, done) {
 });
 
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  res.send("success");
+  
+  res.send(req.user)
 });
 
 router.get("/logout", (req, res) => {
   req.logout();
   res.send("successfully logged out");
+});
+
+router.get("/loggedInUser", (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = router;

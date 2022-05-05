@@ -37,7 +37,7 @@ export default function NavBar(props) {
             <Button color="inherit">Logout</Button>
           </Link>
         )}
-        <Typography align="center"> {loggedInUser?.username}</Typography>
+        <Typography align="right"> {loggedInUser?.username}</Typography>
       </Toolbar>
     </AppBar>
   );

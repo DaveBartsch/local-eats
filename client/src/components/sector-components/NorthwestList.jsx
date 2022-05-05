@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import FarmStandDisplay from "../FarmStandDisplay";
+import Button from "@mui/material/Button";
+import { Link as RouterLink } from "react-router-dom";
+import { Link } from "@mui/material";
 
 const NorthwestList = () => {
   const [northwestList, setNorthwestList] = useState();
@@ -26,6 +29,12 @@ const NorthwestList = () => {
       ) : (
         <div>Loading...</div>
       )}
+
+      <Link component={RouterLink} color="white" underline="none" to="/info">
+        <Button variant="contained" color="success">
+          MORE INFO
+        </Button>
+      </Link>
     </div>
   );
 };

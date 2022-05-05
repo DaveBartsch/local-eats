@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FarmStandData from "./FarmStandData";
+import FarmStandDisplay from "./FarmStandDisplay";
 import { Grid, Typography } from "@mui/material";
 
 const FarmStandsList = () => {
@@ -23,11 +24,9 @@ const FarmStandsList = () => {
       {farmStandList ? (
         farmStandList.map((farmStand) => {
           return (
-            
-              <Grid xs={12} sm={6} md={3} item>
-                <FarmStandData farmStand={farmStand} />
-              </Grid>
-            
+            <Grid xs={12} sm={6} md={3} item>
+              <FarmStandDisplay farmStand={farmStand} />
+            </Grid>
           );
         })
       ) : (

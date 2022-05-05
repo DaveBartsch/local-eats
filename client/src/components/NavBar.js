@@ -14,18 +14,56 @@ export default function NavBar(props) {
       }}
     >
       <Toolbar>
-        <Link component={RouterLink} color="white" underline="none" to="/">
-          <Button variant="contained" padding="1rem" color="success">
+        <Link
+          component={RouterLink}
+          color="white"
+          underline="none"
+          to="/"
+          padding="1rem"
+        >
+          <Button variant="contained" color="success">
             Home
           </Button>
         </Link>
+
+        <Link
+          component={RouterLink}
+          color="white"
+          underline="none"
+          to="/info"
+          padding="1rem"
+        >
+          <Button variant="contained" color="success">
+            Info
+          </Button>
+        </Link>
+
+        <Link
+          component={RouterLink}
+          color="white"
+          underline="none"
+          to="/recipes"
+          padding="1rem"
+        >
+          <Button variant="contained" color="success">
+            Free Recipes
+          </Button>
+        </Link>
+
         {isAgent && (
-          <Link component={RouterLink} color="white" underline="none" to="/add">
-            <Button variant="contained" padding="1rem" color="success">
+          <Link
+            component={RouterLink}
+            color="white"
+            underline="none"
+            to="/add"
+            padding="1rem"
+          >
+            <Button variant="contained" color="success">
               Create a FarmStand
             </Button>
           </Link>
         )}
+
         {!loggedInUser && (
           <Link
             component={RouterLink}
@@ -34,19 +72,21 @@ export default function NavBar(props) {
             to="/login"
             padding="1rem"
           >
-            <Button variant="contained" padding="1rem" color="success">
+            <Button variant="contained" color="success">
               Login
             </Button>
           </Link>
         )}
+
         {loggedInUser && (
           <Link
             component={RouterLink}
             color="white"
             underline="none"
             to="/logout"
+            padding="1rem"
           >
-            <Button variant="contained" padding="1rem" color="success">
+            <Button variant="contained" color="success">
               Logout
             </Button>
           </Link>

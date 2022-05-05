@@ -1,11 +1,14 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
 import LandingCard from "./LandingCard";
+import Button from "@mui/material/Button";
+import { Link as RouterLink } from "react-router-dom";
+import { Link } from "@mui/material";
 
 const LandingSectors = () => {
   return (
     <div>
-      <h2> FIND LOCAL PRODUCE IN CALGARY:</h2>
+      <h1>SEE FARM STANDS BY SECTOR:</h1>
       <Container>
         <Grid container>
           <LandingCard name="NW" />

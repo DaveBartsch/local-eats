@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Card, Typography } from "@mui/material";
 
 // Component for displaying simlified data
 const FarmStandDisplay = (props) => {
@@ -6,21 +7,35 @@ const FarmStandDisplay = (props) => {
 
   return (
     <div>
-      <h2>
-        <Link to={`/details/${farmStand._id}`}>{farmStand.vendor_name}</Link>
-      </h2>
-      {/* <p>vendor_description:</p> */}
-      <p>{farmStand.vendor_description}</p>
-      {/* <p>product_description:</p> */}
-      <p>{farmStand.product_description}</p>
+      <Card sx={{ m: 2, p: 2, maxWidth: 500, height: "90%" }}>
+        <Typography variant="h4">
+          <Link to={`/details/${farmStand._id}`} color="green">
+            {farmStand.vendor_name}
+          </Link>
+        </Typography>
+        <Typography>{farmStand.vendor_description}</Typography>
+        <br />
+        <Typography>{farmStand.product_description}</Typography>
+        <br />
 
-      <p>Location Name: {farmStand.location_name}</p>
-      <p>Address: {farmStand.address}</p>
-      <p>Duration: {farmStand.duration}</p>
-      <p>Hours: {farmStand.hours}</p>
-      <p>Community: {farmStand.community}</p>
-      <br />
-      <br />
+        <Typography>
+          <b>Location Name:</b> {farmStand.location_name}
+        </Typography>
+        <Typography>
+          <b>Address:</b> {farmStand.address}
+        </Typography>
+        <Typography>
+          <b>Duration:</b> {farmStand.duration}
+        </Typography>
+        <Typography>
+          <b>Hours:</b> {farmStand.hours}
+        </Typography>
+        <Typography>
+          <b>Community:</b> {farmStand.community}
+        </Typography>
+        <br />
+        <br />
+      </Card>
     </div>
   );
 };

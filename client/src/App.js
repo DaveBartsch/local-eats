@@ -14,21 +14,34 @@ import SouthwestList from "./components/sector-components/SouthwestList";
 import LandingPage from "./pages/LandingPage";
 import InfoPage from "./pages/InfoPage";
 import RecipePage from "./pages/RecipePage";
+import { useState } from "react";
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState();
+  console.log(`loggedInUser: ${JSON.stringify(loggedInUser)}`);
   return (
     <div className="App">
       <header>
-        <NavBar />
+        <NavBar loggedInUser={loggedInUser} />
       </header>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/all" element={<HomePage />} />
-        <Route path="/details/:id" element={<DetailComponent />} />
+        <Route
+          path="/details/:id"
+          element={<DetailComponent loggedInUser={loggedInUser} />}
+        />
         <Route path="/add" element={<CreateFarmStand />} />
         <Route path="/edit/:id" element={<EditFarmStand />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route
+          path="/login"
+          element={<LoginPage setLoggedInUser={setLoggedInUser} />}
+        />
+        <Route
+          path="/logout"
+          element={<Logout />}
+          setLoggedInUser={setLoggedInUser}
+        />
         <Route path="/ne" element={<NortheastList />} />
         <Route path="/nw" element={<NorthwestList />} />
         <Route path="/se" element={<SoutheastList />} />

@@ -6,7 +6,7 @@ import CreateFarmStand from "./pages/CreateFarmStand";
 import EditFarmStand from "./pages/EditFarmStand";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LogInPage";
-import Logout from "./components/LogOut";
+import Logout from "./components/Logout";
 import NortheastList from "./components/sector-components/NortheastList";
 import NorthwestList from "./components/sector-components/NorthwestList";
 import SoutheastList from "./components/sector-components/SoutheastList";
@@ -39,8 +39,7 @@ function App() {
         />
         <Route
           path="/logout"
-          element={<Logout />}
-          setLoggedInUser={setLoggedInUser}
+          element={<Logout setLoggedInUser={setLoggedInUser} />}
         />
         <Route path="/ne" element={<NortheastList />} />
         <Route path="/nw" element={<NorthwestList />} />

@@ -16,13 +16,13 @@ export default function NavBar(props) {
     
  <Button color="inherit">Create a FarmStand</ Button>
  </Link>)}
- <Link component={RouterLink} color="white" underline="none" to="/login">
+ {!loggedInUser && <Link component={RouterLink} color="white" underline="none" to="/login">
     <Button color="inherit">Login</ Button>
   
- </Link>
- <Link component={RouterLink} color="white" underline="none" to="/logout">
+ </Link>}
+ {loggedInUser && <Link component={RouterLink} color="white" underline="none" to="/logout">
     <Button color="inherit">Logout</ Button>
-    </Link>
+    </Link>}
  </Toolbar>
  </AppBar>
  );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import FarmStandDisplay from "../FarmStandDisplay";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
-import { Link } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 
 const NorthwestList = () => {
   const [northwestList, setNorthwestList] = useState();
@@ -22,6 +22,8 @@ const NorthwestList = () => {
 
   return (
     <div>
+      <Typography variant="h4">Farm Stands in NW Calgary:</Typography>
+
       {northwestList ? (
         northwestList.map((farmStand) => {
           return <FarmStandDisplay farmStand={farmStand} />;

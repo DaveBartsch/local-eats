@@ -8,7 +8,7 @@ const FarmStandDisplay = (props) => {
   return (
     <div>
       <Card sx={{ m: 2, p: 2, maxWidth: 500, height: "90%" }}>
-        <Typography variant="h4">
+        <Typography variant="h5" color="green">
           <Link to={`/details/${farmStand._id}`} color="green">
             {farmStand.vendor_name}
           </Link>

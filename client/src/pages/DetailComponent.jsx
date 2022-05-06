@@ -97,13 +97,14 @@ const DetailComponent = (props) => {
       <br />
       {canEdit && (
         <Button
+          color="success"
           variant="contained"
           onClick={() => navigate("/edit/" + farmStand._id)}
         >
           Edit Farm Stand
         </Button>
       )}
-      <Button variant="contained" onClick={() => navigate("/")}>
+      <Button color="success" variant="contained" onClick={() => navigate("/")}>
         Back
       </Button>
 

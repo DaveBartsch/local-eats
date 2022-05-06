@@ -10,7 +10,7 @@ import {
   ListSubheader,
   Button,
 } from "@mui/material";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 const NewFarmStandForm = (props) => {
   const [type, setType] = useState("");
@@ -27,8 +27,8 @@ const NewFarmStandForm = (props) => {
   const onFormSubmit = props.onFormSubmit;
   const initialValues = props.initialValues;
   const buttonText = props.buttonText;
-  const onFormCancel=props.onFormCancel;
-  const onFormDelete=props.onFormDelete;
+  const onFormCancel = props.onFormCancel;
+  const onFormDelete = props.onFormDelete;
 
   useEffect(() => {
     if (initialValues) {
@@ -48,7 +48,7 @@ const NewFarmStandForm = (props) => {
 
   return (
     <Container sx={{ mt: 5 }}>
-      <Box display="flex" flexDirection="column " mb={3} sx={{ width: '100%' }}>
+      <Box display="flex" flexDirection="column " mb={3} sx={{ width: "100%" }}>
         <div>
           <label>FarmStand Type:</label>
           <TextField
@@ -78,7 +78,7 @@ const NewFarmStandForm = (props) => {
             }}
           />
           <br />
-          <label align="left" >Address:</label>
+          <label align="left">Address:</label>
           <input
             type="text"
             name="address"
@@ -121,7 +121,6 @@ const NewFarmStandForm = (props) => {
           <br />
           <label>Sector:</label>
           <input
-        
             type="text"
             name="sector"
             value={sector}
@@ -164,7 +163,7 @@ const NewFarmStandForm = (props) => {
           <br />
           <Button
             variant="contained"
-            variantColor="green"
+            color="success"
             onClick={() =>
               onFormSubmit({
                 type: type,
@@ -182,8 +181,12 @@ const NewFarmStandForm = (props) => {
           >
             {buttonText}
           </Button>
-          <Button onClick={onFormCancel}>Cancel</Button>
-          <Button onClick={onFormDelete}>Delete</Button>
+          <Button color="success" onClick={onFormCancel}>
+            Cancel
+          </Button>
+          <Button color="success" onClick={onFormDelete}>
+            Delete
+          </Button>
         </div>
       </Box>
     </Container>

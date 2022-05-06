@@ -22,7 +22,7 @@ const DetailComponent = (props) => {
   const navigate = useNavigate();
   const [farmStand, setFarmStand] = useState();
   const loggedInUser = props.loggedInUser;
-  const canEdit = loggedInUser?.isAgent || loggedInUser?.farmStand._id === id;
+  const canEdit = loggedInUser?.isAgent || loggedInUser?.farmStandId === id;
 
   useEffect(() => {
     const getFarmStand = async () => {

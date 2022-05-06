@@ -65,7 +65,7 @@ const onFormDelete = async (farmStand)=>{
 }
 
   return (
-    <Box mt={3}>
+    <Box mt={3} >
       <h2>Edit Farm Stand</h2>
       <NewFarmStandForm
         initialValues={farmStand}

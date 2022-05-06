@@ -47,8 +47,8 @@ const NewFarmStandForm = (props) => {
   }, [initialValues]);
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Box display="flex" flexDirection="column " mb={3}>
+    <Container sx={{ mt: 5 }}>
+      <Box display="flex" flexDirection="column " mb={3} sx={{ width: '100%' }}>
         <div>
           <label>FarmStand Type:</label>
           <TextField
@@ -57,6 +57,7 @@ const NewFarmStandForm = (props) => {
             variant="standard"
             backgroundColor="light green"
             name="type"
+            align="Right"
             value={type}
             onChange={(event) => {
               setType(event.target.value);
@@ -68,6 +69,7 @@ const NewFarmStandForm = (props) => {
             label="Location Name"
             type="text"
             variant="standard"
+            align="Right"
             backgroundColor="light green"
             name="location_name"
             value={location_name}
@@ -76,10 +78,11 @@ const NewFarmStandForm = (props) => {
             }}
           />
           <br />
-          <label>Address:</label>
+          <label align="left" >Address:</label>
           <input
             type="text"
             name="address"
+            align="Right"
             value={address}
             onChange={(event) => {
               setAddress(event.target.value);

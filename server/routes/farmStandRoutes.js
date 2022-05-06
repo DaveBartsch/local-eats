@@ -17,6 +17,12 @@ const {
   deleteFarmStand,
 } = require("../db/models/standSchema");
 
+
+
+
+
+
+
 const mustBeManager =  (req, res, next) => {
   console.log("mustbemanager middleware");
   if (req.user && req.user.isAgent) {
@@ -27,6 +33,7 @@ const mustBeManager =  (req, res, next) => {
 }
 
 const mustbeOwnProfile = (req, res, next) => {
+  const id=req.params.id;
   console.log("must be own profile middleware");
   if(req.user && (req.user.isAgent || req.user.farmStandId===id)) {
      next();

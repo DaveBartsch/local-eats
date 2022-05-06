@@ -22,6 +22,9 @@ const FarmStandDisplay = (props) => {
           <b>Location Name:</b> {farmStand.location_name}
         </Typography>
         <Typography>
+          <b>Community:</b> {farmStand.community}
+        </Typography>
+        <Typography>
           <b>Address:</b> {farmStand.address}
         </Typography>
         <Typography>
@@ -29,9 +32,6 @@ const FarmStandDisplay = (props) => {
         </Typography>
         <Typography>
           <b>Hours:</b> {farmStand.hours}
-        </Typography>
-        <Typography>
-          <b>Community:</b> {farmStand.community}
         </Typography>
         <br />
         <br />

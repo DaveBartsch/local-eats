@@ -8,7 +8,7 @@ import SectorButtons from "../components/SectorButtons";
 const LandingPage = () => {
   return (
     <div>
-      <h1> Calgary Farm Stands:</h1>
+      <h1> Locally Grown Food in Calgary:</h1>
       <MapComponent />
       <br />
 

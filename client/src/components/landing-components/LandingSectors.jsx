@@ -1,14 +1,12 @@
 import { Container, Grid } from "@mui/material";
 import React from "react";
 import LandingCard from "./LandingCard";
-import Button from "@mui/material/Button";
-import { Link as RouterLink } from "react-router-dom";
-import { Link } from "@mui/material";
+import { Typography } from "@mui/material";
 
 const LandingSectors = () => {
   return (
     <div>
-      <h1>SEE FARM STANDS BY SECTOR:</h1>
+      <Typography variant="h3">SEE FARM STANDS BY SECTOR:</Typography>
       <Container>
         <Grid container>
           <LandingCard name="NW" />

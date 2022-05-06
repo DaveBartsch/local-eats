@@ -9,10 +9,12 @@ const LandingPage = () => {
   return (
     <div>
       <h1> Calgary Farm Stands:</h1>
-      <SectorButtons />
       <MapComponent />
+      <br />
 
-      <h2>ALL CALGARY FARM STANDS:</h2>
+      <SectorButtons />
+      <br />
+
       <FarmStandList />
     </div>
   );

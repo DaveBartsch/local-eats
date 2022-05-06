@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
-  const setLoggedInUser=props.setLoggedInUser
+  const setLoggedInUser = props.setLoggedInUser;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -19,7 +19,6 @@ const LoginForm = (props) => {
       },
       body: data,
     });
-   
 
     if (response.status === 200) {
       const userData = await response.json();
@@ -56,7 +55,11 @@ const LoginForm = (props) => {
             setPassword(event.target.value);
           }}
         />
-        <Button variant="contained" onClick={() => onFormSubmit()}>
+        <Button
+          color="success"
+          variant="contained"
+          onClick={() => onFormSubmit()}
+        >
           Login
         </Button>
       </Box>

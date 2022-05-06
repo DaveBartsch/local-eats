@@ -6,7 +6,7 @@ import CreateFarmStand from "./pages/CreateFarmStand";
 import EditFarmStand from "./pages/EditFarmStand";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LogInPage";
-import Logout from "./components/Logout";
+import Logout from "./components/LogOut";
 import NortheastList from "./components/sector-components/NortheastList";
 import NorthwestList from "./components/sector-components/NorthwestList";
 import SoutheastList from "./components/sector-components/SoutheastList";
@@ -20,7 +20,12 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState();
   console.log(`loggedInUser: ${JSON.stringify(loggedInUser)}`);
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url("https://wallpaperaccess.com/full/1429640.jpg")`,
+      }}
+    >
       <header>
         <NavBar loggedInUser={loggedInUser} />
       </header>

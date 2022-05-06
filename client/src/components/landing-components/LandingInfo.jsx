@@ -3,10 +3,6 @@ import React from "react";
 const LandingInfo = () => {
   return (
     <div>
-      <img
-        width="75%"
-        src="https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg"
-      />
       <h2> The benefits of eating local foods </h2>
       <p>
         Are you a locavore? Locavores are people who try to choose locally grown

@@ -3,6 +3,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { Link } from "@mui/material";
+import { Typography } from "@mui/material";
+
 export default function NavBar(props) {
   const { loggedInUser } = props;
   const isAgent = loggedInUser?.isAgent;

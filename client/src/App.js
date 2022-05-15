@@ -7,10 +7,7 @@ import EditFarmStand from "./pages/EditFarmStand";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LogInPage";
 import Logout from "./components/LogOut";
-import NortheastList from "./components/sector-components/NortheastList";
-import NorthwestList from "./components/sector-components/NorthwestList";
-import SoutheastList from "./components/sector-components/SoutheastList";
-import SouthwestList from "./components/sector-components/SouthwestList";
+import SectorList from "./components/sector-components/SectorList";
 import LandingPage from "./pages/LandingPage";
 import InfoPage from "./pages/InfoPage";
 import RecipePage from "./pages/RecipePage";
@@ -46,11 +43,10 @@ function App() {
           path="/logout"
           element={<Logout setLoggedInUser={setLoggedInUser} />}
         />
-        <Route path="/ne" element={<NortheastList />} />
-        <Route path="/nw" element={<NorthwestList />} />
-        <Route path="/se" element={<SoutheastList />} />
-        <Route path="/sw" element={<SouthwestList />} />
-        <Route path="/sw" element={<SouthwestList />} />
+        <Route path="/ne" element={<SectorList citySector="ne" />} />
+        <Route path="/nw" element={<SectorList citySector="nw" />} />
+        <Route path="/se" element={<SectorList citySector="se" />} />
+        <Route path="/sw" element={<SectorList citySector="sw" />} />
         <Route path="/info" element={<InfoPage />} />
         <Route path="/recipes" element={<RecipePage />} />
       </Routes>

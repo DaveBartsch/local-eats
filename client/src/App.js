@@ -7,7 +7,7 @@ import EditFarmStand from "./pages/EditFarmStand";
 import NavBar from "./components/NavBar";
 import LoginPage from "./pages/LogInPage";
 import Logout from "./components/LogOut";
-import SectorList from "./components/sector-components/SectorList";
+import SectorList from "./components/SectorList";
 import LandingPage from "./pages/LandingPage";
 import InfoPage from "./pages/InfoPage";
 import RecipePage from "./pages/RecipePage";

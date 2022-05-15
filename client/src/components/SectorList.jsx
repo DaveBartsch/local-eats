@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FarmStandDisplay from "../FarmStandDisplay";
+import FarmStandDisplay from "./FarmStandDisplay";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
 import { Link, Typography } from "@mui/material";
